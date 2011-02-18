@@ -1,0 +1,178 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>net.frontlinesms.core</groupId>
+	<artifactId>parent-pom</artifactId>
+	<name>frontlinesms parent pom</name>
+	<version>1.7.00-beta-4-SNAPSHOT</version>
+	<description>Parent POM for inheritance by POMs in FrontlineSMS core, dist, plugins etc.</description>
+	<packaging>pom</packaging>
+	<licenses>
+		<license>
+			<name>GNU Lesser General Public License v3 or later</name>
+			<url>http://www.gnu.org/copyleft/lesser.html</url>
+			<distribution>manual</distribution>
+			<comments>
+				FrontlineSMS - http://www.frontlinesms.com
+				Copyright 2007, 2008 kiwanja
+				
+				This file is part of FrontlineSMS.
+				
+				FrontlineSMS is free software: you can redistribute it and/or modify it
+				under the terms of the GNU Lesser General Public License as published by
+				the Free Software Foundation, either version 3 of the License, or (at
+				your option) any later version.
+				
+				FrontlineSMS is distributed in the hope that it will be useful, but
+				WITHOUT ANY WARRANTY; without even the implied warranty of
+				MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU Lesser
+				General Public License for more details.
+				
+				You should have received a copy of the GNU Lesser General Public License
+				along with FrontlineSMS. If not, see http://www.gnu.org/licenses/.
+			</comments>
+		</license>
+	</licenses>
+	
+	<scm>
+		<connection>scm:git://frontlinesms.git.sourceforge.net/gitroot/frontlinesms/parent-pom.git</connection>
+		<developerConnection>scm:git:ssh://${sourceforge.username}@frontlinesms.git.sourceforge.net/gitroot/frontlinesms/parent-pom</developerConnection>
+	</scm>
+	
+	<repositories>
+		<repository>
+			<id>frontlinesms.repo</id>
+			<name>FrontlineSMS Maven repository</name>
+			<url>http://dev.frontlinesms.com/m2repo</url>
+		</repository>
+	</repositories>
+	<pluginRepositories>
+		<pluginRepository>
+			<id>frontlinesms.repo</id>
+			<name>FrontlineSMS Maven repository</name>
+			<url>http://dev.frontlinesms.com/m2repo</url>
+		</pluginRepository>
+	</pluginRepositories>
+
+	<distributionManagement>
+		<repository>
+			<id>frontlinesms.repo</id>
+			<name>FrontlineSMS Maven repository</name>
+			<url>ftp://dev.frontlinesms.com</url>
+		</repository>
+	</distributionManagement>
+  
+	<properties>
+		<!-- Force Maven to use UTF-8 encoding when copying resources, rather than using the 
+			platform default. -->
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		
+		<!-- Shared dependency versions -->
+		<frontlinesms.version>${project.parent.version}</frontlinesms.version>
+		<thinlet.version>1.00.04</thinlet.version>
+		<smslib.version>1.0.3</smslib.version>
+		<f.email.version>0.00.05</f.email.version>
+		<f.mms.version>0.00.09</f.mms.version>
+		<log4j.version>1.2.15</log4j.version>
+	</properties>
+
+	<build>	
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.5</source>
+					<target>1.5</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-release-plugin</artifactId>
+				<version>2.0</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<executions>
+					<execution>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<configuration>
+					<argLine>-enableassertions</argLine>
+					<forkMode>always</forkMode>
+				</configuration>
+			</plugin>
+			
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>2.2</version>
+			</plugin>
+		</plugins>
+		
+		<extensions>
+			<extension>
+				<groupId>org.apache.maven.wagon</groupId>
+				<artifactId>wagon-ftp</artifactId>
+				<version>1.0-beta-6</version>
+			</extension>
+		</extensions>
+	</build>
+
+	<reporting>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>findbugs-maven-plugin</artifactId>
+				<version>2.3</version>
+				<configuration>
+					<xmlOutput>true</xmlOutput>
+					<findbugsXmlOutput>true</findbugsXmlOutput>
+					<findbugsXmlWithMessages>true</findbugsXmlWithMessages>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>cobertura-maven-plugin</artifactId>
+				<version>2.4</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-pmd-plugin</artifactId>
+				<version>2.5</version>
+				<configuration>
+					<targetJdk>1.5</targetJdk>
+				</configuration>
+			</plugin>
+		</plugins>
+	</reporting>
+	
+	<dependencies>
+		<!-- Test Dependencies -->
+		<dependency>
+			<groupId>net.frontlinesms.core</groupId>
+			<artifactId>frontlinesms-test</artifactId>
+			<version>0.01.01</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>2.5.6</version>
+			<type>jar</type>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-all</artifactId>
+			<version>1.8.2</version>
+			<scope>test</scope> 
+		</dependency>
+	</dependencies>
+</project>
