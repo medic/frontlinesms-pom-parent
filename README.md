@@ -8,9 +8,9 @@ This project defines a common parent POM for FrontlineSMS core and plugin projec
 		<parent>
 			<groupId>net.frontlinesms.core</groupId>
 			<artifactId>parent-pom</artifactId>
-			<version>1.7.00-beta-4-SNAPSHOT</version>
+			<version>${coreVersion}</version>
 			<relativePath>../parent-pom</relativePath>
 		</parent>
 		...
 	</project>
-
+*Where ${coreVersion} is the version of the FrontlineSMS core you would like to use.*
