@@ -13,4 +13,4 @@ This project defines a common parent POM for FrontlineSMS core and plugin projec
 		</parent>
 		...
 	</project>
-_Where *${coreVersion}* is the version of the FrontlineSMS core you would like to use._
+**Where *${coreVersion}* is the version of the FrontlineSMS core you would like to use.**
