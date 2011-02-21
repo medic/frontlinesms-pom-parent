@@ -3,7 +3,7 @@
 	<groupId>net.frontlinesms.core</groupId>
 	<artifactId>parent-pom</artifactId>
 	<name>frontlinesms parent pom</name>
-	<version>1.7.00-beta-4-SNAPSHOT</version>
+	<version>1.7.00-beta-4-test</version>
 	<description>Parent POM for inheritance by POMs in FrontlineSMS core, dist, plugins etc.</description>
 	<packaging>pom</packaging>
 	<licenses>
@@ -34,8 +34,8 @@
 	</licenses>
 	
 	<scm>
-		<connection>scm:git://frontlinesms.git.sourceforge.net/gitroot/frontlinesms/parent-pom.git</connection>
-		<developerConnection>scm:git:ssh://${sourceforge.username}@frontlinesms.git.sourceforge.net/gitroot/frontlinesms/parent-pom</developerConnection>
+		<connection>scm:git://github.com/${github.projectOwner}/${github.projectName}.git</connection>
+		<developerConnection>scm:git:git@github.com:${github.projectOwner}/${github.projectName}.git</developerConnection>
 	</scm>
 	
 	<repositories>
@@ -66,6 +66,10 @@
 			platform default. -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		
+		<!-- repository dependencies -->
+		<github.projectOwner>frontlinesms</github.projectOwner>
+		<github.projectName>${project.artifactId}</github.projectName>
+
 		<!-- Shared dependency versions -->
 		<frontlinesms.version>${project.parent.version}</frontlinesms.version>
 		<thinlet.version>1.00.04</thinlet.version>
