@@ -3,7 +3,7 @@
 	<groupId>net.frontlinesms.core</groupId>
 	<artifactId>parent-pom</artifactId>
 	<name>frontlinesms parent pom</name>
-	<version>1.7.00-beta-4-test</version>
+	<version>1.7.00-beta-4-SNAPSHOT</version>
 	<description>Parent POM for inheritance by POMs in FrontlineSMS core, dist, plugins etc.</description>
 	<packaging>pom</packaging>
 	<licenses>
