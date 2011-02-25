@@ -70,8 +70,6 @@
 		<github.projectOwner>frontlinesms</github.projectOwner>
 		<github.projectName>${project.artifactId}</github.projectName>
 
-		<!-- Shared dependency versions -->
-		<frontlinesms.version>${project.parent.version}</frontlinesms.version>
 		<thinlet.version>1.00.04</thinlet.version>
 		<smslib.version>1.0.3</smslib.version>
 		<f.email.version>0.00.05</f.email.version>
@@ -156,6 +154,20 @@
 			</plugin>
 		</plugins>
 	</reporting>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>net.frontlinesms.core</groupId>
+				<artifactId>frontlinesms</artifactId>
+				<!-- in childrent of this POM, the version of
+						frontlinesms core should be the 
+						same as	the version of this POM.
+						-->
+				<version>${project.parent.version}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 	
 	<dependencies>
 		<!-- Test Dependencies -->
