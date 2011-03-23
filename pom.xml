@@ -59,6 +59,12 @@
 			<name>FrontlineSMS Maven repository</name>
 			<url>ftp://dev.frontlinesms.com</url>
 		</repository>
+		<!--
+		<site>
+			<id>frontlinesms.website</id>
+			<url>ftp://dev.frontlinesms.com</url>
+		</site>
+		-->
 	</distributionManagement>
   
 	<properties>
@@ -161,6 +167,11 @@
 					<targetJdk>1.5</targetJdk>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jxr-plugin</artifactId>
+				<version>2.2</version>
+			</plugin> 
 		</plugins>
 	</reporting>
 
