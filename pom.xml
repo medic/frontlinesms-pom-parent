@@ -77,7 +77,7 @@
 		<github.projectName>${project.artifactId}</github.projectName>
 
 		<thinlet.version>1.00.05-SNAPSHOT</thinlet.version>
-		<smslib.version>1.0.3</smslib.version>
+		<smslib.version>1.1.0-SNAPSHOT</smslib.version>
 		<f.email.version>0.00.05</f.email.version>
 		<f.mms.version>0.00.09</f.mms.version>
 		<log4j.version>1.2.15</log4j.version>
