@@ -179,15 +179,6 @@
 		<dependencies>
 			<dependency>
 				<groupId>net.frontlinesms.core</groupId>
-				<artifactId>frontlinesms</artifactId>
-				<!-- in childrent of this POM, the version of
-						frontlinesms core should be the 
-						same as	the version of this POM.
-						-->
-				<version>${project.parent.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>net.frontlinesms.core</groupId>
 				<artifactId>thinlet</artifactId>
 				<version>${thinlet.version}</version>
 			</dependency>
